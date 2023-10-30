@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "produses",
+  "info": {
+    "singularName": "produs",
+    "pluralName": "produses",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Price": {
+      "type": "decimal",
+      "required": true
+    },
+    "Photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Stock": {
+      "type": "integer",
+      "private": true
+    },
+    "specificaties": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::specificatie.specificatie",
+      "mappedBy": "produses"
+    }
+  }
+}
